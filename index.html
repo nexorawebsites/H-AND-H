@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="H&H Beauty — premium beauty and skincare collection.">
+<meta property="og:title" content="H&H Beauty | Premium Beauty & Skincare">
+<meta property="og:description" content="Beauty that feels like you. Discover the H&H collection.">
+<title>H&H Beauty | Premium Beauty & Skincare</title>
+<style>
+:root{
+  --ink:#241313; --wine:#5a1f2b; --berry:#a93d52; --straw:#d95b68;
+  --blush:#f2c9c4; --pink:#f7dfda; --cream:#fff8f2; --sand:#ead8ce;
+  --paper:#fffdf9; --muted:#765f5c; --line:#eadbd4; --white:#fff;
+  --shadow:0 30px 80px rgba(68,28,30,.13); --radius:30px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E")}
+button,a{font:inherit}button{cursor:pointer}
+.serif{font-family:Georgia,"Times New Roman",serif}
+.topline{height:3px;background:var(--wine)}
+header{position:fixed;top:3px;left:0;right:0;z-index:50;padding:17px 4vw;transition:.35s;color:var(--wine)}
+header.scrolled{background:rgba(255,253,249,.88);backdrop-filter:blur(18px);box-shadow:0 8px 35px rgba(50,20,20,.07)}
+.nav{max-width:1450px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.logo{width:78px;height:50px;object-fit:contain;mix-blend-mode:multiply}
+.navlinks{display:flex;gap:27px;align-items:center;font-size:10px;font-weight:bold;letter-spacing:.19em;text-transform:uppercase}
+.navlinks a{color:inherit;text-decoration:none;position:relative}.navlinks a:after{content:"";position:absolute;left:0;bottom:-7px;width:0;height:1px;background:var(--berry);transition:.3s}.navlinks a:hover:after{width:100%}
+.cartBtn{background:var(--wine);color:white;border-radius:999px;padding:11px 17px;display:flex;gap:8px;align-items:center;font-size:11px}.count{background:var(--blush);color:var(--wine);min-width:21px;height:21px;border-radius:50%;display:grid;place-items:center;font-size:10px}
+.menuBtn{display:none;background:none;font-size:24px;color:var(--wine)}
+
+.hero{min-height:100vh;display:grid;grid-template-columns:.88fr 1.12fr;align-items:center;padding:125px 6vw 70px;background:var(--cream);position:relative;isolation:isolate;overflow:hidden}
+.hero:before{content:"H&H";position:absolute;right:-3vw;top:7vh;font:italic 500 clamp(220px,31vw,520px)/.7 Georgia,serif;color:rgba(169,61,82,.055);letter-spacing:-.12em;z-index:-1}
+.hero:after{content:"";position:absolute;width:44vw;height:44vw;right:-17vw;bottom:-25vw;border-radius:50%;background:var(--pink);z-index:-2}
+.heroText{max-width:650px;position:relative;z-index:3;padding-left:2vw}
+.eyebrow{font-size:10px;letter-spacing:.34em;text-transform:uppercase;margin-bottom:25px;color:var(--berry);font-weight:bold}
+.hero h1{font-size:clamp(80px,12vw,185px);line-height:.72;margin:0 0 32px;letter-spacing:-.09em;font-weight:500;color:var(--wine)}
+.hero h1 span{display:block;font-size:.22em;letter-spacing:.02em;line-height:1.35;font-style:italic;margin:30px 0 0 9px;color:var(--ink)}
+.hero p{font-size:16px;line-height:1.8;color:var(--muted);max-width:430px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px}
+.btn{padding:15px 23px;border-radius:999px;letter-spacing:.13em;text-transform:uppercase;font-size:10px;transition:.3s}
+.btn.dark{background:var(--wine);color:white}.btn.light{border:1px solid var(--wine);background:transparent;color:var(--wine)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(90,31,43,.17)}
+.heroVisual{position:relative;min-height:670px;display:grid;place-items:center}
+.heroVisual:before{content:"STRAWBERRY";position:absolute;top:10%;right:5%;font-size:9px;letter-spacing:.4em;color:var(--berry);writing-mode:vertical-rl}
+.heroVisual:after{content:"";position:absolute;width:70%;height:76%;border:1px solid rgba(169,61,82,.25);border-radius:48% 52% 42% 58%;transform:rotate(-12deg);z-index:-1}
+.heroImage{width:min(570px,76vw);height:650px;object-fit:cover;border-radius:48% 48% 18px 18px;box-shadow:var(--shadow);animation:float 7s ease-in-out infinite;filter:saturate(.98)}
+.heroBadge{position:absolute;bottom:4%;left:4%;width:130px;height:130px;border-radius:50%;background:var(--berry);color:white;display:grid;place-items:center;text-align:center;font-size:9px;letter-spacing:.12em;text-transform:uppercase;animation:spin 18s linear infinite;box-shadow:0 15px 40px rgba(169,61,82,.25)}
+.heroBadge b{font-size:25px;display:block;letter-spacing:0}
+.scroll{position:absolute;right:2vw;bottom:28px;font-size:9px;letter-spacing:.27em;writing-mode:vertical-rl;color:var(--muted)}
+@keyframes float{50%{transform:translateY(-14px) rotate(.7deg)}}@keyframes spin{to{transform:rotate(360deg)}}
+.ticker{background:var(--wine);color:#fff;padding:14px 0;overflow:hidden;white-space:nowrap;font-size:9px;letter-spacing:.34em;text-transform:uppercase}.ticker span{display:inline-block;margin-right:55px;animation:ticker 26s linear infinite}@keyframes ticker{to{transform:translateX(-100%)}}
+
+.section{padding:115px 6vw}.sectionHead{max-width:1450px;margin:0 auto 48px;display:flex;justify-content:space-between;align-items:end;gap:30px}.sectionHead h2{font:500 clamp(45px,6.2vw,86px)/.88 Georgia,serif;margin:0;letter-spacing:-.06em;color:var(--wine)}.sectionHead h2 i{color:var(--berry)}
+.sectionHead p{max-width:390px;color:var(--muted);line-height:1.75;margin:0;font-size:13px}
+.filters{max-width:1450px;margin:0 auto 38px;display:flex;gap:8px;flex-wrap:wrap}.filter{padding:11px 17px;border:1px solid var(--line);background:white;color:var(--wine);border-radius:999px;font-size:9px;font-weight:bold;letter-spacing:.15em;text-transform:uppercase;transition:.25s}.filter.active,.filter:hover{background:var(--wine);color:white;border-color:var(--wine)}
+.grid{max-width:1450px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{position:relative;background:#f6ebe6;overflow:hidden;min-width:0;transition:.45s;opacity:0;transform:translateY(25px)}.card.visible{opacity:1;transform:none}.card:hover{transform:translateY(-8px);box-shadow:var(--shadow)}.card:nth-child(4n+1){border-radius:34px 8px 8px 8px}.card:nth-child(4n+2){border-radius:8px 34px 8px 8px}.card:nth-child(4n+3){border-radius:8px 8px 34px 8px}.card:nth-child(4n){border-radius:8px 8px 8px 34px}
+.cardImg{width:100%;aspect-ratio:1/1.1;object-fit:cover;display:block;transition:.65s}.card:hover .cardImg{transform:scale(1.055)}
+.cardBody{padding:19px 18px 20px;background:rgba(255,255,255,.78)}.tag{font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--berry);font-weight:bold}
+.card h3{font:500 21px/1.08 Georgia,serif;margin:8px 0 7px;color:var(--wine)}.size{font-size:10px;color:var(--muted);min-height:15px}.price{margin:13px 0;font-weight:bold;color:var(--wine)}.old{text-decoration:line-through;color:#a99b96;font-weight:normal;margin-right:7px}.buy{width:100%;background:var(--wine);color:white;border-radius:999px;padding:12px;font-size:9px;letter-spacing:.15em;text-transform:uppercase}.quick{position:absolute;top:14px;right:14px;background:rgba(255,253,249,.9);color:var(--wine);width:39px;height:39px;border-radius:50%;font-size:16px;z-index:2}
+
+.sets{background:var(--pink);position:relative;overflow:hidden}.sets:before{content:"SETS";position:absolute;right:-2vw;top:25px;font:italic 500 220px Georgia,serif;color:rgba(90,31,43,.045)}.setsGrid{max-width:1450px;margin:auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:18px}.setCard{position:relative;min-height:410px;overflow:hidden;background:var(--sand)}.setCard img{width:100%;height:100%;object-fit:cover;transition:.7s}.setCard:hover img{transform:scale(1.055)}.setOverlay{position:absolute;inset:auto 20px 20px;background:rgba(255,253,249,.91);padding:20px;backdrop-filter:blur(10px)}.setOverlay h3{font:500 27px Georgia,serif;margin:0 0 8px;color:var(--wine)}.setOverlay p{margin:0;color:var(--muted);font-size:12px}.deal{position:absolute;top:18px;left:18px;background:var(--berry);color:#fff;padding:9px 12px;font-size:8px;letter-spacing:.16em;text-transform:uppercase;z-index:2}
+
+.match{padding:0 6vw 120px;background:var(--paper)}.matchBox{max-width:1450px;margin:auto;background:var(--wine);color:#fff;min-height:590px;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;border-radius:38px;position:relative}.matchBox:before{content:"?";position:absolute;right:38%;top:-70px;font:italic 500 430px Georgia,serif;color:rgba(255,255,255,.035)}.matchCopy{padding:75px;position:relative;z-index:2}.matchCopy .eyebrow{color:var(--blush)}.matchCopy h2{font:500 clamp(55px,7vw,105px)/.84 Georgia,serif;margin:0 0 25px}.matchCopy h2 i{color:var(--blush)}.matchCopy p{color:#d7c7c2;line-height:1.75;max-width:430px}.matchPanel{background:#f8ebe7;color:var(--ink);padding:48px;display:flex;align-items:center;position:relative;z-index:2}.question{width:100%}.qstep{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--berry)}.question h3{font:500 38px Georgia,serif;margin:12px 0 25px;color:var(--wine)}.choices{display:grid;gap:10px}.choice{padding:16px 18px;background:white;border:1px solid var(--line);text-align:left;border-radius:14px;transition:.25s;color:var(--wine)}.choice:hover,.choice.selected{background:var(--wine);color:white;transform:translateX(6px)}.matchResult{display:none}.matchResult.show{display:block}.resultImg{width:100%;max-height:250px;object-fit:cover;border-radius:18px;margin-bottom:18px}.resultName{font:500 34px Georgia,serif;margin:0 0 10px;color:var(--wine)}
+
+.routine{background:var(--ink);color:white}.routine .sectionHead h2{color:white}.routine .sectionHead p{color:#bfb0ac}.steps{max-width:1450px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #51413f}.step{padding:35px 20px 30px;border-right:1px solid #51413f;min-height:280px;transition:.35s}.step:first-child{border-left:1px solid #51413f}.step:hover,.step.active{background:#332322}.num{font-size:9px;color:var(--blush);letter-spacing:.18em}.step h3{font:500 39px Georgia,serif;margin:70px 0 10px;color:#fff}.step p{color:#aaa09d;font-size:12px;line-height:1.7}.routineProducts{max-width:1450px;margin:25px auto 0;display:flex;gap:10px;flex-wrap:wrap}.routineChip{border:1px solid #5a4946;color:#ddd;padding:9px 13px;border-radius:999px;font-size:9px}
+
+.why{background:var(--cream)}.whyGrid{max-width:1450px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.whyItem{padding:30px 0;border-top:1px solid var(--line)}.whyItem span{font-size:9px;color:var(--berry);letter-spacing:.16em}.whyItem h3{font:500 28px Georgia,serif;margin:55px 0 12px;color:var(--wine)}.whyItem p{color:var(--muted);font-size:12px;line-height:1.75}
+
+footer{background:var(--wine);color:white;padding:75px 6vw 30px}.foot{max-width:1450px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:45px}.foot img{width:92px;filter:brightness(0) invert(1) grayscale(1)}.foot h3{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--blush)}.foot a,.foot p{display:block;color:#dfd1cd;text-decoration:none;font-size:12px;line-height:2}.copy{max-width:1450px;margin:60px auto 0;border-top:1px solid #72535a;padding-top:20px;color:#a8918f;font-size:10px}
+
+.whatsapp{position:fixed;right:22px;bottom:22px;z-index:60;width:61px;height:61px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;box-shadow:0 15px 35px rgba(37,211,102,.3);font-weight:bold;font-size:22px;animation:pulse 2.5s infinite;text-decoration:none}@keyframes pulse{0%,100%{box-shadow:0 15px 35px rgba(37,211,102,.3)}50%{box-shadow:0 15px 35px rgba(37,211,102,.3),0 0 0 10px rgba(37,211,102,.08)}}
+
+.drawer{position:fixed;right:-440px;top:0;width:min(440px,100%);height:100vh;background:var(--cream);z-index:80;padding:30px;transition:.4s;box-shadow:-20px 0 60px rgba(0,0,0,.15);overflow:auto}.drawer.open{right:0}.drawerTop{display:flex;justify-content:space-between;align-items:center}.drawerTop h2{color:var(--wine)}.close{background:none;font-size:25px;color:var(--wine)}.cartItems{margin:30px 0}.cartItem{display:grid;grid-template-columns:70px 1fr auto;gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}.cartItem img{width:70px;height:70px;object-fit:cover;border-radius:12px}.cartItem h4{margin:0;font:500 16px Georgia,serif;color:var(--wine)}.qty{display:flex;gap:8px;align-items:center;margin-top:8px}.qty button{width:25px;height:25px;border-radius:50%;background:var(--pink);color:var(--wine)}.total{font-size:20px;display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:18px;color:var(--wine)}
+
+.overlay{position:fixed;inset:0;background:rgba(30,10,12,.42);z-index:70;opacity:0;pointer-events:none;transition:.3s}.overlay.show{opacity:1;pointer-events:auto}
+.modal{position:fixed;inset:50% auto auto 50%;transform:translate(-50%,-45%);width:min(900px,94vw);max-height:90vh;overflow:auto;background:var(--cream);z-index:90;opacity:0;pointer-events:none;transition:.35s;border-radius:34px;box-shadow:0 30px 100px rgba(0,0,0,.28)}.modal.show{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}.modalGrid{display:grid;grid-template-columns:1fr 1fr}.modalImg{width:100%;height:520px;object-fit:cover}.modalInfo{padding:45px}.modalInfo h2{font:500 45px Georgia,serif;margin:8px 0;color:var(--wine)}.delivery{display:grid;gap:9px;margin:25px 0}.delivery label{padding:14px;border:1px solid var(--line);border-radius:12px}.modalClose{position:absolute;right:18px;top:14px;background:white;color:var(--wine);width:40px;height:40px;border-radius:50%;z-index:2}
+
+.intro{position:fixed;inset:0;background:var(--wine);color:white;z-index:200;display:grid;place-items:center;animation:introOut 1s 1.35s forwards}.introInner{text-align:center;animation:introIn 1.1s ease}.introLogo{width:125px;filter:brightness(0) invert(1);opacity:0;animation:logoIn .9s .15s forwards}.intro h1{font:500 88px Georgia,serif;letter-spacing:-.08em;margin:10px 0 0;opacity:0;animation:logoIn .9s .35s forwards}@keyframes logoIn{to{opacity:1}}@keyframes introIn{from{transform:scale(.92);opacity:0}to{transform:none;opacity:1}}@keyframes introOut{to{opacity:0;visibility:hidden;pointer-events:none}}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);background:var(--wine);color:#fff;padding:13px 20px;border-radius:999px;font-size:11px;opacity:0;z-index:120;transition:.3s}.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}.hero{grid-template-columns:1fr}.heroVisual{min-height:500px}.heroImage{height:520px}.setsGrid{grid-template-columns:1fr 1fr}.whyGrid{grid-template-columns:1fr 1fr}.foot{grid-template-columns:1fr 1fr}.navlinks{display:none}.menuBtn{display:block}.nav .cartBtn{margin-left:auto}}
+@media(max-width:700px){header{padding:14px 5vw}.hero{padding:110px 7vw 50px}.hero h1{font-size:88px}.heroVisual{min-height:430px}.heroImage{height:430px;width:80vw}.heroBadge{width:92px;height:92px;font-size:8px}.section{padding:78px 5vw}.sectionHead{display:block}.sectionHead p{margin-top:18px}.grid{grid-template-columns:1fr 1fr;gap:10px}.cardBody{padding:13px}.card h3{font-size:18px}.setsGrid,.matchBox,.modalGrid{grid-template-columns:1fr}.setCard{min-height:330px}.matchCopy{padding:45px 30px}.matchPanel{padding:28px}.steps{grid-template-columns:1fr 1fr}.step{min-height:215px}.step h3{font-size:28px;margin-top:35px}.whyGrid{grid-template-columns:1fr 1fr}.foot{grid-template-columns:1fr 1fr}.modalImg{height:330px}.modalInfo{padding:28px}.modalInfo h2{font-size:35px}}
+@media(max-width:470px){.grid{grid-template-columns:1fr}.whyGrid{grid-template-columns:1fr}.foot{grid-template-columns:1fr}.hero h1{font-size:74px}.steps{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
+
+<style id="hh-motion-upgrade">
+/* H&H CINEMATIC MOTION UPGRADE */
+:root{--ease:cubic-bezier(.16,1,.3,1)}
+html{scroll-behavior:smooth}
+body{overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E")}
+
+@keyframes hhReveal{from{opacity:0;transform:translateY(70px) scale(.94);filter:blur(10px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes hhFloat{0%,100%{transform:translate3d(0,0,0) rotate(0deg)}50%{transform:translate3d(0,-18px,0) rotate(1.5deg)}}
+@keyframes hhBlob{0%,100%{border-radius:45% 55% 60% 40%/45% 40% 60% 55%;transform:rotate(0deg) scale(1)}50%{border-radius:60% 40% 45% 55%/55% 60% 40% 45%;transform:rotate(12deg) scale(1.08)}}
+@keyframes hhShine{0%{transform:translateX(-130%) skewX(-18deg)}55%,100%{transform:translateX(150%) skewX(-18deg)}}
+@keyframes hhPulse{0%,100%{box-shadow:0 0 0 0 rgba(217,91,104,.0)}50%{box-shadow:0 0 0 18px rgba(217,91,104,.08)}}
+@keyframes hhMarquee{to{transform:translateX(-50%)}}
+@keyframes hhSpin{to{transform:rotate(360deg)}}
+
+.hero,.hero-section{perspective:1200px}
+.hero *{will-change:transform}
+.hero:after,.hero-section:after{content:"";position:absolute;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(217,91,104,.22),transparent 68%);right:-100px;top:12%;filter:blur(10px);animation:hhFloat 7s ease-in-out infinite;pointer-events:none}
+.hero .hero-content,.hero .hero-copy{animation:hhReveal 1.1s var(--ease) both}
+.hero img,.hero .hero-image,.hero .product-hero{animation:hhFloat 6s ease-in-out infinite}
+.hero .hero-image:before,.hero .product-hero:before{content:"";position:absolute;inset:-20%;background:linear-gradient(100deg,transparent 35%,rgba(255,255,255,.45) 48%,transparent 60%);animation:hhShine 5s ease-in-out infinite;pointer-events:none}
+
+section{position:relative}
+section:not(.hero):not(.hero-section){animation:hhReveal .9s var(--ease) both}
+.reveal,.fade-up,.animate-on-scroll{opacity:0;transform:translateY(45px) scale(.98);filter:blur(4px);transition:opacity .9s var(--ease),transform .9s var(--ease),filter .9s var(--ease)}
+.reveal.is-visible,.fade-up.is-visible,.animate-on-scroll.is-visible{opacity:1;transform:none;filter:none}
+
+.product-card,.product,.card{position:relative;overflow:hidden;transform:translateZ(0);transition:transform .55s var(--ease),box-shadow .55s var(--ease),border-radius .55s var(--ease)}
+.product-card:after,.product:after,.card:after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.45) 50%,transparent 65%);transform:translateX(-140%);pointer-events:none}
+.product-card:hover:after,.product:hover:after,.card:hover:after{animation:hhShine .9s ease}
+.product-card:hover,.product:hover,.card:hover{transform:translateY(-14px) rotateX(2deg) rotateY(-2deg) scale(1.025);box-shadow:0 28px 70px rgba(90,31,43,.18)}
+.product-card img,.product img,.card img{transition:transform .8s var(--ease);transform-origin:center}
+.product-card:hover img,.product:hover img,.card:hover img{transform:scale(1.09) rotate(-2deg)}
+
+button,.btn,.buy,.cta,a[href*="whatsapp"]{transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+button:hover,.btn:hover,.buy:hover,.cta:hover,a[href*="whatsapp"]:hover{transform:translateY(-4px) scale(1.035);box-shadow:0 15px 35px rgba(90,31,43,.2)}
+button:active,.btn:active,.buy:active,.cta:active{transform:scale(.96)}
+
+img{transition:filter .5s ease}
+img:hover{filter:saturate(1.08) contrast(1.02)}
+
+.hh-floating-strawberry{position:fixed;z-index:3;pointer-events:none;font-size:clamp(30px,4vw,65px);filter:drop-shadow(0 15px 18px rgba(90,31,43,.12));animation:hhFloat 5s ease-in-out infinite}
+.hh-f1{left:3vw;top:23vh;animation-delay:-1s}.hh-f2{right:4vw;top:58vh;animation-delay:-3s;font-size:45px}.hh-f3{left:12vw;bottom:9vh;animation-delay:-2s;font-size:32px}
+
+.hh-marquee{overflow:hidden;white-space:nowrap;padding:18px 0;background:var(--wine,#5a1f2b);color:#fff8f2;font-size:clamp(18px,2.5vw,32px);letter-spacing:.08em;text-transform:uppercase}
+.hh-marquee-track{display:inline-flex;width:max-content;animation:hhMarquee 22s linear infinite}
+.hh-marquee span{padding:0 28px}
+
+.hh-orbit{position:absolute;width:520px;height:520px;right:-130px;top:50%;transform:translateY(-50%);border:1px solid rgba(90,31,43,.12);border-radius:50%;animation:hhSpin 30s linear infinite;pointer-events:none}
+.hh-orbit:before,.hh-orbit:after{content:"";position:absolute;width:13px;height:13px;border-radius:50%;background:var(--straw,#d95b68);box-shadow:0 0 0 10px rgba(217,91,104,.1)}
+.hh-orbit:before{left:10%;top:14%}.hh-orbit:after{right:7%;bottom:18%}
+
+.hh-cursor-glow{position:fixed;z-index:9998;width:220px;height:220px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(217,91,104,.13),transparent 65%);transform:translate(-50%,-50%);mix-blend-mode:multiply;opacity:0;transition:opacity .25s}
+body:hover .hh-cursor-glow{opacity:1}
+
+.hh-progress{position:fixed;z-index:10000;left:0;top:0;height:4px;width:0;background:linear-gradient(90deg,var(--wine,#5a1f2b),var(--straw,#d95b68),#f0a5a0);box-shadow:0 0 14px rgba(217,91,104,.5)}
+
+@media(max-width:700px){
+ .hh-orbit{width:280px;height:280px;right:-150px;opacity:.5}
+ .hh-floating-strawberry{opacity:.65}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
+}
+</style>
+
+</head>
+<body>
+<div class="topline"></div>
+<div class="intro"><div class="introInner"><img class="introLogo" src="https://i.imgur.com/I0IjDR0.jpeg" alt="H&H"><h1>H&H</h1></div></div>
+
+<header id="header"><nav class="nav">
+<a href="#home"><img class="logo" src="https://i.imgur.com/I0IjDR0.jpeg" alt="H&H logo"></a>
+<div class="navlinks">
+<a href="#home">Home</a><a href="#shop">Shop</a><a href="#sets">Sets</a><a href="#match">Beauty Match</a><a href="#about">About</a><a href="#contact">Contact</a>
+</div>
+<button class="cartBtn" onclick="openCart()">Bag <span class="count" id="cartCount">0</span></button>
+<button class="menuBtn" onclick="toggleMobile()">☰</button>
+</nav></header>
+
+<main>
+<section class="hero" id="home">
+<div class="heroText">
+<div class="eyebrow">H&H Beauty / Lebanese beauty ritual</div>
+<h1 class="serif">H&H<span>Beauty that feels like you.</span></h1>
+<p>A considered collection of creams, body care and beauty sets made to turn everyday care into a ritual.</p>
+<div class="actions"><a class="btn dark" href="#shop">Shop the collection</a><a class="btn light" href="#sets">Explore sets</a></div>
+</div>
+<div class="heroVisual"><div style="position:absolute;left:1%;top:14%;font:italic 18px Georgia,serif;color:var(--berry);transform:rotate(-90deg);transform-origin:left top;letter-spacing:.08em;z-index:2">made for your ritual</div>
+<img class="heroImage" src="https://i.imgur.com/zcRXKGy.jpeg" alt="H&H full beauty set" fetchpriority="high">
+<div class="heroBadge">H&H<br><b>BEAUTY</b><br>RITUAL</div>
+<div class="scroll">SCROLL TO DISCOVER ↓</div>
+</div>
+</section>
+<div class="ticker"><span>H&H BEAUTY • SIMPLE RITUALS • BEAUTY THAT FEELS LIKE YOU • H&H BEAUTY • SIMPLE RITUALS • BEAUTY THAT FEELS LIKE YOU • </span></div>
+
+<section class="section" id="shop">
+<div class="sectionHead"><h2>THE H&H<br><i>COLLECTION</i></h2><p>Twenty ways to build your ritual — from individual essentials to complete sets. Choose your favorite, then order directly through WhatsApp.</p></div>
+<div class="filters" id="filters"></div>
+<div class="grid" id="products"></div>
+</section>
+
+<section class="section sets" id="sets">
+<div class="sectionHead"><h2>H&H <i>SETS</i></h2><p>More care. More glow. Better value.</p></div>
+<div class="setsGrid" id="setsGrid"></div>
+</section>
+
+<section class="match" id="match">
+<div class="matchBox">
+<div class="matchCopy"><div class="eyebrow">Your personalized ritual</div><h2>H&H<br><i>Beauty Match</i></h2><p>Two quick choices. One H&H ritual. Discover a product or set that fits what you're looking for.</p><button class="btn light" style="color:white;border-color:white;margin-top:20px" onclick="startMatch()">Find my perfect H&H</button></div>
+<div class="matchPanel">
+<div class="question" id="matchQuestion">
+<div class="qstep" id="qstep">Question 1 of 2</div><h3 id="qtitle">What are you looking for?</h3><div class="choices" id="choices"></div>
+</div>
+<div class="matchResult" id="matchResult"></div>
+</div>
+</div>
+</section>
+
+<section class="section routine">
+<div class="sectionHead"><h2>BUILD YOUR<br><i>H&H ROUTINE</i></h2><p>Tap through the ritual. Your routine can be as simple or complete as you want.</p></div>
+<div class="steps" id="steps">
+<div class="step active" data-step="cleanse"><span class="num">01 / CLEANSE</span><h3>Cleanse</h3><p>Start fresh with a gentle foaming wash.</p></div>
+<div class="step" data-step="exfoliate"><span class="num">02 / EXFOLIATE</span><h3>Exfoliate</h3><p>Make room for a smoother-feeling ritual.</p></div>
+<div class="step" data-step="moisturize"><span class="num">03 / MOISTURIZE</span><h3>Moisturize</h3><p>Finish with lotion or strawberry butter.</p></div>
+<div class="step" data-step="care"><span class="num">04 / CARE</span><h3>Care</h3><p>Add your chosen intimate-care step.</p></div>
+</div>
+<div class="routineProducts" id="routineProducts"></div>
+</section>
+
+<section class="section why" id="about">
+<div class="sectionHead"><h2>WHY <i>H&H?</i></h2><p>A small brand experience built around easy discovery, simple ordering and products you can combine your own way.</p></div>
+<div class="whyGrid">
+<div class="whyItem"><span>01 / SIMPLE</span><h3>Beauty made simple</h3><p>Care designed for your everyday ritual.</p></div>
+<div class="whyItem"><span>02 / TEXTURE</span><h3>Feel-good textures</h3><p>A routine you'll actually enjoy.</p></div>
+<div class="whyItem"><span>03 / RITUAL</span><h3>H&H ritual</h3><p>From cleansing to complete care.</p></div>
+<div class="whyItem"><span>04 / ORDER</span><h3>Direct ordering</h3><p>Order easily through WhatsApp.</p></div>
+</div>
+</section>
+</main>
+
+<footer id="contact"><div class="foot">
+<div><img src="https://i.imgur.com/I0IjDR0.jpeg" alt="H&H"><p>Beauty that feels like you.</p></div>
+<div><h3>Shop</h3><a href="#shop">All Products</a><a href="#shop">Creams</a><a href="#shop">Body Care</a><a href="#sets">Sets</a></div>
+<div><h3>Explore</h3><a href="#match">Beauty Match</a><a href="#about">About H&H</a><a href="#home">Home</a></div>
+<div><h3>Contact</h3><p>WhatsApp: +961 78 913 876</p><a href="#" onclick="whatsappGeneral();return false;">WhatsApp Orders →</a></div>
+</div><div class="copy">© 2026 H&H Beauty. All rights reserved.</div></footer>
+
+<a class="whatsapp" href="#" onclick="whatsappGeneral();return false;" aria-label="WhatsApp H&H">✆</a>
+<div class="overlay" id="overlay" onclick="closeAll()"></div>
+
+<aside class="drawer" id="drawer"><div class="drawerTop"><h2 class="serif">Your Bag</h2><button class="close" onclick="closeCart()">×</button></div><div class="cartItems" id="cartItems"></div><div class="total"><span>Total</span><strong id="cartTotal">$0</strong></div><button class="btn dark" style="width:100%;margin-top:20px" onclick="orderCart()">Order via WhatsApp</button></aside>
+
+<div class="modal" id="modal"><button class="modalClose" onclick="closeModal()">×</button><div class="modalGrid"><img class="modalImg" id="modalImg" alt=""><div class="modalInfo"><div class="tag">H&H BEAUTY</div><h2 id="modalName"></h2><div id="modalSize" class="size"></div><div id="modalPrice" class="price"></div><div class="delivery" id="delivery"></div><div class="qty"><button onclick="changeModalQty(-1)">−</button><strong id="modalQty">1</strong><button onclick="changeModalQty(1)">+</button></div><button class="btn dark" style="width:100%;margin-top:18px" onclick="buyModal()">Buy now</button><button class="btn light" style="width:100%;margin-top:10px" onclick="addModal()">Add to bag</button></div></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const products=[
+{id:1,name:"Whitening Cream",size:"50ml",img:"https://i.imgur.com/WhwETtj.jpeg",withDelivery:13,withoutDelivery:8,cats:["creams"]},
+{id:2,name:"Foaming Wash",size:"200ml",img:"https://i.imgur.com/AMUO1HD.jpeg",withDelivery:14,withoutDelivery:9,cats:["wash"]},
+{id:3,name:"Strawberry Lotion",size:"250ml",img:"https://i.imgur.com/XFsFB1a.jpeg",withDelivery:14,withoutDelivery:9,cats:["body"]},
+{id:4,name:"Strawberry Scrub",size:"250ml",img:"https://i.imgur.com/hSSNtdt.jpeg",withDelivery:14,withoutDelivery:9,cats:["scrubs"]},
+{id:5,name:"Intimate Spray",size:"200ml",img:"https://i.imgur.com/3AAhcDp.jpeg",withDelivery:14,withoutDelivery:9,cats:["intimate"]},
+{id:6,name:"Strawberry Butter",size:"250ml",img:"https://i.imgur.com/RzMSMNi.jpeg",withDelivery:14,withoutDelivery:9,cats:["body"]},
+{id:7,name:"Whitening Cream + Intimate Spray",img:"https://i.imgur.com/g0J8cKQ.jpeg",withDelivery:18,cats:["creams","intimate","sets"],tag:"SET"},
+{id:8,name:"Scrub + Lotion + Whitening Cream",img:"https://i.imgur.com/uMQZ2dU.jpeg",withDelivery:22,cats:["scrubs","body","creams","sets"],tag:"SET"},
+{id:9,name:"Scrub + Butter + Whitening Cream",img:"https://i.imgur.com/QEcFE00.jpeg",withDelivery:22,cats:["scrubs","body","creams","sets"],tag:"SET"},
+{id:10,name:"Scrub + Butter + Intimate Spray",img:"https://i.imgur.com/6JluFtn.jpeg",withDelivery:22,cats:["scrubs","body","intimate","sets"],tag:"SET"},
+{id:11,name:"Scrub + Lotion + Intimate Spray",img:"https://i.imgur.com/Z4vIJts.jpeg",withDelivery:22,cats:["scrubs","body","intimate","sets"],tag:"SET"},
+{id:12,name:"Butter + Whitening Cream + Intimate Spray",img:"https://i.imgur.com/uMQZ2dU.jpeg",withDelivery:23,cats:["body","creams","intimate","sets"],tag:"SET"},
+{id:13,name:"Lotion + Whitening Cream + Intimate Spray",img:"https://i.imgur.com/GBQ2zM0.jpeg",withDelivery:22,cats:["body","creams","intimate","sets"],tag:"SET"},
+{id:14,name:"FULL SET — All H&H Products",img:"https://i.imgur.com/zcRXKGy.jpeg",old:40,withDelivery:32,cats:["sets"],tag:"BEST VALUE"},
+{id:15,name:"Scrub + Lotion",img:"https://i.imgur.com/z2lGwvi.jpeg",withDelivery:19,cats:["scrubs","body","sets"],tag:"SET"},
+{id:16,name:"Scrub + Butter",img:"https://i.imgur.com/dXcTwPG.jpeg",withDelivery:19,cats:["scrubs","body","sets"],tag:"SET"},
+{id:17,name:"Butter + Intimate Spray",img:"https://i.imgur.com/tNXSFFH.jpeg",withDelivery:19,cats:["body","intimate","sets"],tag:"SET"},
+{id:18,name:"Lotion + Intimate Spray",img:"https://i.imgur.com/nop6GvV.jpeg",withDelivery:19,cats:["body","intimate","sets"],tag:"SET"},
+{id:19,name:"MEDIUM SET — Foaming Wash + Scrub + Whitening Cream + Intimate Spray",img:"https://i.imgur.com/PQgjxIp.jpeg",old:40,withDelivery:29,cats:["wash","scrubs","creams","intimate","sets"],tag:"MOST LOVED"},
+{id:20,name:"MEDIUM SET — Scrub + Lotion + Whitening Cream + Intimate Spray",img:"https://i.imgur.com/6KVRorV.jpeg",old:30,withDelivery:26,cats:["scrubs","body","creams","intimate","sets"],tag:"SET"}
+];
+let cart=[],current=null,modalQty=1,deliveryChoice="with";
+const wa="96178913876";
+const filters=[["all","All"],["creams","Creams"],["body","Body Care"],["wash","Wash"],["scrubs","Scrubs"],["intimate","Intimate Care"],["sets","Sets"]];
+function renderFilters(){document.getElementById("filters").innerHTML=filters.map((f,i)=>`<button class="filter ${i===0?"active":""}" onclick="filterProducts('${f[0]}',this)">${f[1]}</button>`).join("")}
+function renderProducts(list=products){
+ const box=document.getElementById("products");box.innerHTML=list.map(p=>`
+ <article class="card"><button class="quick" onclick="quick(${p.id})">＋</button><img class="cardImg" loading="lazy" src="${p.img}" alt="${p.name}">
+ <div class="cardBody">${p.tag?`<div class="tag">${p.tag}</div>`:""}<h3>${p.name}</h3><div class="size">${p.size||"Beauty set"}</div><div class="price">${p.old?`<span class="old">$${p.old}</span>`:""}$${p.withDelivery} <small style="color:#8c817b;font-weight:normal">with delivery</small></div><button class="buy" onclick="quick(${p.id})">Buy now</button></div></article>`).join("");
+ requestAnimationFrame(()=>document.querySelectorAll(".card").forEach((c,i)=>setTimeout(()=>c.classList.add("visible"),i*35)));
+}
+function filterProducts(cat,btn){document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));btn.classList.add("active");renderProducts(cat==="all"?products:products.filter(p=>p.cats.includes(cat)))}
+function quick(id){current=products.find(p=>p.id===id);modalQty=1;deliveryChoice="with";document.getElementById("modalImg").src=current.img;document.getElementById("modalName").textContent=current.name;document.getElementById("modalSize").textContent=current.size||"H&H Beauty Set";document.getElementById("modalQty").textContent=1;document.getElementById("modalPrice").innerHTML=current.old?`<span class="old">$${current.old}</span> $${current.withDelivery}`:`$${current.withDelivery}`;renderDelivery();document.getElementById("modal").classList.add("show");document.getElementById("overlay").classList.add("show")}
+function renderDelivery(){let el=document.getElementById("delivery");if(current.withoutDelivery!==undefined)el.innerHTML=`<label><input type="radio" name="delivery" value="with" checked onchange="deliveryChoice=this.value"> With Delivery — $${current.withDelivery}</label><label><input type="radio" name="delivery" value="without" onchange="deliveryChoice=this.value"> Without Delivery — $${current.withoutDelivery}</label>`;else el.innerHTML=`<label><input type="radio" checked> With Delivery — $${current.withDelivery}</label>`}
+function changeModalQty(n){modalQty=Math.max(1,modalQty+n);document.getElementById("modalQty").textContent=modalQty}
+function priceFor(p){return deliveryChoice==="without"&&p.withoutDelivery!==undefined?p.withoutDelivery:p.withDelivery}
+function buyModal(){let price=priceFor(current),delivery=deliveryChoice==="without"?"Without delivery":"With delivery";let msg=`Hello H&H 💗 I would like to order:\n\nProduct: ${current.name}\n${current.size?`Size: ${current.size}\n`:""}Quantity: ${modalQty}\nDelivery: ${delivery}\nPrice: $${price*modalQty}\n\nThank you!`;window.open(`https://wa.me/${wa}?text=${encodeURIComponent(msg)}`,"_blank")}
+function addModal(){addToCart(current,modalQty,priceFor(current));closeModal();showToast("Added to your H&H bag")}
+function addToCart(p,q=1,price=p.withDelivery){let found=cart.find(x=>x.id===p.id&&x.price===price);if(found)found.qty+=q;else cart.push({id:p.id,name:p.name,img:p.img,price,qty:q});updateCart()}
+function updateCart(){document.getElementById("cartCount").textContent=cart.reduce((a,x)=>a+x.qty,0);document.getElementById("cartItems").innerHTML=cart.length?cart.map((x,i)=>`<div class="cartItem"><img src="${x.img}" alt=""><div><h4>${x.name}</h4><div>$${x.price} × ${x.qty}</div><div class="qty"><button onclick="cartQty(${i},-1)">−</button><span>${x.qty}</span><button onclick="cartQty(${i},1)">+</button></div></div><button onclick="removeCart(${i})">×</button></div>`).join(""):`<p style="color:#756a66">Your bag is waiting for its first ritual.</p>`;document.getElementById("cartTotal").textContent="$"+cart.reduce((a,x)=>a+x.price*x.qty,0)}
+function cartQty(i,n){cart[i].qty+=n;if(cart[i].qty<=0)cart.splice(i,1);updateCart()}
+function removeCart(i){cart.splice(i,1);updateCart()}
+function openCart(){document.getElementById("drawer").classList.add("open");document.getElementById("overlay").classList.add("show")}
+function closeCart(){document.getElementById("drawer").classList.remove("open");document.getElementById("overlay").classList.remove("show")}
+function closeModal(){document.getElementById("modal").classList.remove("show");document.getElementById("overlay").classList.remove("show")}
+function closeAll(){closeCart();closeModal()}
+function orderCart(){if(!cart.length){showToast("Your bag is empty");return}let lines=cart.map((x,i)=>`${i+1}. ${x.name} — $${x.price} × ${x.qty} = $${x.price*x.qty}`).join("\n");let total=cart.reduce((a,x)=>a+x.price*x.qty,0);let msg=`Hello H&H 💗\n\nI would like to place this order:\n\n${lines}\n\nTotal: $${total}\nDelivery: With delivery\n\nThank you!`;window.open(`https://wa.me/${wa}?text=${encodeURIComponent(msg)}`,"_blank")}
+function whatsappGeneral(){window.open(`https://wa.me/${wa}?text=${encodeURIComponent("Hello H&H 💗 I would like to ask about your products.")}`,"_blank")}
+function showToast(t){let x=document.getElementById("toast");x.textContent=t;x.classList.add("show");setTimeout(()=>x.classList.remove("show"),2200)}
+function toggleMobile(){let n=document.querySelector(".navlinks");n.style.display=n.style.display==="flex"?"none":"flex";n.style.position="absolute";n.style.top="75px";n.style.left="5vw";n.style.right="5vw";n.style.background="#fffdf9";n.style.padding="20px";n.style.flexDirection="column";n.style.boxShadow="0 15px 40px rgba(0,0,0,.1)"}
+const matchQ=[{title:"What are you looking for?",opts:["Glow","Whitening","Hydration","Freshness","Complete care"]},{title:"What kind of routine do you prefer?",opts:["Simple","Complete","Everything"]}];let matchAnswers=[];
+function startMatch(){matchAnswers=[];document.getElementById("matchResult").classList.remove("show");document.getElementById("matchQuestion").style.display="block";showMatchQ()}
+function showMatchQ(){let n=matchAnswers.length,q=matchQ[n];document.getElementById("qstep").textContent=`Question ${n+1} of 2`;document.getElementById("qtitle").textContent=q.title;document.getElementById("choices").innerHTML=q.opts.map(o=>`<button class="choice" onclick="answerMatch('${o}')">${o}</button>`).join("")}
+function answerMatch(a){matchAnswers.push(a);if(matchAnswers.length<2)showMatchQ();else showMatchResult()}
+function showMatchResult(){let a=matchAnswers[0],p=a==="Complete care"?products[14]:a==="Whitening"?products[0]:a==="Hydration"?products[2]:a==="Freshness"?products[1]:products[3];if(matchAnswers[1]==="Everything")p=products[13];else if(matchAnswers[1]==="Complete"&&a!=="Whitening")p=products[14];document.getElementById("matchQuestion").style.display="none";document.getElementById("matchResult").innerHTML=`<div class="qstep">YOUR H&H MATCH</div><img class="resultImg" src="${p.img}" alt="${p.name}"><div class="resultName">${p.name}</div><p style="color:#756a66">A thoughtful starting point for your ${a.toLowerCase()} ritual.</p><button class="btn dark" onclick="quick(${p.id})">Buy now — $${p.withDelivery}</button><button class="btn light" style="margin-left:7px" onclick="startMatch()">Try again</button>`;document.getElementById("matchResult").classList.add("show")}
+const routineMap={cleanse:[2],exfoliate:[4],moisturize:[3,6],care:[5]};
+function renderRoutine(k){document.getElementById("routineProducts").innerHTML=routineMap[k].map(id=>{let p=products[id-1];return `<button class="routineChip" onclick="quick(${p.id})">${p.name} →</button>`}).join("")}
+document.querySelectorAll(".step").forEach(s=>s.addEventListener("click",()=>{document.querySelectorAll(".step").forEach(x=>x.classList.remove("active"));s.classList.add("active");renderRoutine(s.dataset.step)}));
+window.addEventListener("scroll",()=>document.getElementById("header").classList.toggle("scrolled",scrollY>30));
+renderFilters();renderProducts();renderRoutine("cleanse");updateCart();
+</script>
+
+<script id="hh-motion-js">
+(function(){
+  const $=(s,c=document)=>c.querySelector(s), $$=(s,c=document)=>[...c.querySelectorAll(s)];
+
+  // Scroll reveal
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');observer.unobserve(e.target)}})
+  },{threshold:.12});
+  $$('section, .product-card, .product, .card, .feature, .set-card, .hero-copy, .hero-content').forEach((el,i)=>{
+    if(i>0) el.classList.add('reveal');
+    observer.observe(el);
+  });
+
+  // Scroll progress
+  const bar=document.createElement('div'); bar.className='hh-progress'; document.body.appendChild(bar);
+  const progress=()=>{const h=document.documentElement.scrollHeight-innerHeight;bar.style.width=(h>0?(scrollY/h)*100:0)+'%'}; 
+  addEventListener('scroll',progress,{passive:true});progress();
+
+  // Cursor glow
+  const glow=document.createElement('div'); glow.className='hh-cursor-glow'; document.body.appendChild(glow);
+  addEventListener('pointermove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'},{passive:true});
+
+  // Floating strawberry accents
+  ['🍓','✦','🍓'].forEach((t,i)=>{
+    const d=document.createElement('div');d.className='hh-floating-strawberry hh-f'+(i+1);d.textContent=t;document.body.appendChild(d);
+  });
+
+  // Marquee
+  const firstSection=$$('section')[1] || document.body.firstElementChild;
+  if(firstSection && !$('.hh-marquee')){
+    const m=document.createElement('div');m.className='hh-marquee';
+    m.innerHTML='<div class="hh-marquee-track"><span>H&H BEAUTY RITUAL</span><span>STRAWBERRY GLOW</span><span>SELF-CARE, ELEVATED</span><span>H&H BEAUTY RITUAL</span><span>STRAWBERRY GLOW</span><span>SELF-CARE, ELEVATED</span></div>';
+    firstSection.parentNode.insertBefore(m,firstSection);
+  }
+
+  // Hero parallax
+  const hero=$('.hero,.hero-section');
+  if(hero){
+    hero.addEventListener('pointermove',e=>{
+      const r=hero.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+      $$('.hero-image,.product-hero,.hero img',hero).forEach(el=>el.style.transform=`translate3d(${x*16}px,${y*12}px,0) scale(1.025)`);
+    });
+    hero.addEventListener('pointerleave',()=>$$('.hero-image,.product-hero,.hero img',hero).forEach(el=>el.style.transform=''));
+    const orbit=document.createElement('div');orbit.className='hh-orbit';hero.appendChild(orbit);
+  }
+
+  // Add subtle magnetic movement to primary CTAs
+  $$('.btn,.buy,.cta,button').forEach(b=>{
+    b.addEventListener('pointermove',e=>{
+      const r=b.getBoundingClientRect(),x=(e.clientX-r.left-r.width/2)/r.width,y=(e.clientY-r.top-r.height/2)/r.height;
+      b.style.transform=`translate(${x*7}px,${y*5}px) scale(1.035)`;
+    });
+    b.addEventListener('pointerleave',()=>b.style.transform='');
+  });
+})();
+</script>
+
+</body>
+</html>
